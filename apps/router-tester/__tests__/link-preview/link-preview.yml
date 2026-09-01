@@ -1,0 +1,20 @@
+appId: dev.expo.routertester
+name: Link preview
+---
+- stopApp: dev.expo.routertester
+- openLink: router-tester://link-preview/misc
+- runFlow: ../close-warning.yml
+- longPressOn: 'Link.Preview: /one'
+- assertVisible:
+    text: 'Current Path: /link-preview/one'
+- assertVisible:
+    text: 'Is preview: Yes'
+- tapOn:
+    point: '50%,10%'
+- longPressOn: 'Link.Preview: /one'
+- tapOn:
+    point: '50%, 50%'
+- assertVisible:
+    text: 'Home - One'
+- assertVisible:
+    text: 'Is preview: No'
